@@ -17,7 +17,7 @@ Map = {
       }
       
 def main():
-    button = f"{randint(1,5)}"
+    button = {randint(1,5)}
     chance = randint(1,75)
     
     print(Map['opening_1'])
@@ -37,14 +37,17 @@ def main():
         print(Map['bad_input'])
     else:
         print(Map['not_unlock'], Map['death'], sep = "\n")
+        status = "death"
         
     print(Map['opening_3'])
     decision = input(">treasureroom: ")
     if decision == "open" and chance > 50:
         print(Map['more_than_50'], Map['victory'], sep = "\n")
+        status = "victory"
     elif decision == "open" and chance < 50:
         print(Map['less_than_50'], Map['death'], sep = "\n")
+        status = "death"
     else:
         print(Map['bad_input'])
     
-main() 
+#main()

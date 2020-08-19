@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+import NewGame_v2
 
 app = Flask(__name__)
 
@@ -12,12 +13,15 @@ def Start():
 def inputs():
     results = {}
     if request.method == 'POST':
-        mood = request.form['input1']
-        games = request.form['input2']
-        from Games import output
-        games_result = output(mood, games) ##print or return
+        NewGame_v2.Map['opening_1']
+        action = request.form['input1']
+        unlock = request.form['input2']
+        decision = request.form['input3']
         
-        if game_result == dead:
+        #from Games import main
+        output = main(action, unlock, decision)
+        
+        if output.status == "death":
             return render_template('death.html')
         
         else:
